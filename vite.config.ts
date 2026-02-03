@@ -10,4 +10,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'framer-motion': ['framer-motion'],
+          'ui-vendor': ['lucide-react', 'react-icons', '@radix-ui/react-slot'],
+        }
+      }
+    }
+  }
 })

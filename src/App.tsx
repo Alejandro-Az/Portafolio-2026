@@ -1,15 +1,24 @@
+import { Suspense, lazy } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Hero } from "@/components/sections/Hero"
-import { Projects } from "@/components/sections/Projects"
 import { MotionConfig } from "framer-motion"
 import { Header } from "@/components/layout/Header"
+import { Loader2 } from "lucide-react"
 
-import { About } from "@/components/sections/About"
-import { Skills } from "@/components/sections/Skills"
-import { Experience } from "@/components/sections/Experience"
-import { Contact } from "@/components/sections/Contact"
-import { Cta } from "@/components/sections/Cta"
+// --- Lazy Load Sections (Código dividido) ---
+const About = lazy(() => import("@/components/sections/About").then(m => ({ default: m.About })))
+const Skills = lazy(() => import("@/components/sections/Skills").then(m => ({ default: m.Skills })))
+const Experience = lazy(() => import("@/components/sections/Experience").then(m => ({ default: m.Experience })))
+const Projects = lazy(() => import("@/components/sections/Projects").then(m => ({ default: m.Projects })))
+const Cta = lazy(() => import("@/components/sections/Cta").then(m => ({ default: m.Cta })))
+const Contact = lazy(() => import("@/components/sections/Contact").then(m => ({ default: m.Contact })))
 
+// Componente de carga minimalista
+const SectionLoader = () => (
+  <div className="flex items-center justify-center w-full py-20">
+    <Loader2 className="animate-spin text-amber-500" size={30} />
+  </div>
+)
 
 export default function App() {
   return (
@@ -20,12 +29,15 @@ export default function App() {
 
           <main>
             <Hero />
-            <About />
-            <Skills />
-            <Experience />
-            <Projects />
-            <Cta />
-            <Contact />
+
+            <Suspense fallback={<SectionLoader />}>
+              <About />
+              <Skills />
+              <Experience />
+              <Projects />
+              <Cta />
+              <Contact />
+            </Suspense>
 
           </main>
 
