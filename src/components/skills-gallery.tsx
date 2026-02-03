@@ -13,11 +13,28 @@ import {
     SiStripe, SiJsonwebtokens, SiJira, SiSlack, SiFramer
 } from "react-icons/si"
 import { FaFilePdf, FaEnvelopeOpenText, FaPaperPlane, FaPenToSquare, FaVideo } from "react-icons/fa6"
-import { Code, Smartphone, Server, Cloud, Palette, Database as DbIcon, Users, Workflow } from "lucide-react"
+import { Code, Smartphone, Server, Cloud, Palette, Database as DbIcon, Users, Workflow, MessageSquareText, BrainCircuit, CalendarCheck, Zap } from "lucide-react"
 import { cn } from "@/lib/utils"
+
+// --- ITEM COLOR MAP (For specific override colors) ---
+const itemColorMap: Record<string, string> = {
+    "Comunicación Técnica-Cliente": "#3B82F6", // Blue
+    "Resolución Analítica": "#F59E0B", // Amber
+    "Scrum / Ágil": "#10B981", // Emerald
+    "Autogestión": "#8B5CF6", // Violet
+    "Adaptabilidad": "#EC4899", // Pink
+}
 
 // --- ICON MAP (Reused from Skills.tsx) ---
 const iconMap: Record<string, React.ElementType> = {
+    // Soft Skills
+    "Comunicación Técnica-Cliente": MessageSquareText,
+    "Resolución Analítica": BrainCircuit,
+    "Scrum / Ágil": Users,
+    "Autogestión": CalendarCheck,
+    "Adaptabilidad": Zap,
+
+    // Tech Skills
     "Kotlin": SiKotlin, "Android Studio": SiAndroidstudio, "Firebase": SiFirebase, "Material Design": SiMaterialdesign,
     "React": SiReact, "TypeScript": SiTypescript, "JavaScript": SiJavascript, "HTML5": SiHtml5, "CSS3": SiCss3, "Tailwind CSS": SiTailwindcss, "Vite": SiVite, "Redux": SiRedux, "Axios": SiAxios, "jQuery": SiJquery, "Bootstrap": SiBootstrap, "Material UI": SiMui, "shadcn/ui": Palette, "FontAwesome": SiFontawesome,
     "Laravel": SiLaravel, "PHP": SiPhp, "Node.js": SiNodedotjs, "Express.js": SiExpress, "Python": SiPython, "C#": Code, "CakePHP": SiCakephp, "WordPress": SiWordpress,
@@ -29,6 +46,7 @@ const iconMap: Record<string, React.ElementType> = {
 }
 
 const styleMap = [
+    { color: "#06B6D4", icon: Users },      // Soft Skills (Cyan) - Nuevo
     { color: "#10B981", icon: Smartphone }, // Mobile
     { color: "#00D9FF", icon: Code },       // Frontend
     { color: "#8B5CF6", icon: Server },     // Backend
@@ -153,11 +171,13 @@ export function SkillsGallery() {
                                     <div className="grid grid-cols-3 gap-y-8 gap-x-2 overflow-y-auto content-start flex-grow [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:none] pb-4 pt-4 px-2">
                                         {group.items.map((techName) => {
                                             const TechIcon = iconMap[techName] || Terminal
+                                            const itemColor = itemColorMap[techName] || theme.color // Use specific color if exists
+
                                             return (
                                                 <div
                                                     key={techName}
                                                     className="flex flex-col items-center gap-2 group/icon transform transition-transform duration-200 hover:scale-110" // Reducido de 300ms a 200ms
-                                                    style={{ '--theme-color': theme.color } as React.CSSProperties}
+                                                    style={{ '--theme-color': itemColor } as React.CSSProperties}
                                                 >
                                                     <TechIcon
                                                         size={32}

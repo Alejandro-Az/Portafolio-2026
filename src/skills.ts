@@ -1,5 +1,15 @@
 export const skills = [
   {
+    title: "Habilidades Blandas & Liderazgo",
+    items: [
+      "Comunicación Técnica-Cliente",
+      "Resolución Analítica",
+      "Scrum / Ágil",
+      "Autogestión",
+      "Adaptabilidad"
+    ],
+  },
+  {
     title: "Desarrollo Móvil",
     items: ["Kotlin", "Android Studio", "Firebase", "Material Design"],
   },
