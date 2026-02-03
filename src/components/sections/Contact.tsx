@@ -99,7 +99,7 @@ export function Contact() {
                       key={link.name}
                       href={link.url}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="relative block overflow-hidden p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-amber-500/30 transition-all duration-300 group/link"
                       whileHover="hover"
                       initial="initial"
