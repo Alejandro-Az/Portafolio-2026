@@ -55,16 +55,17 @@ export function SkillsGallery() {
         <div className="w-full max-w-6xl mx-auto px-4 relative min-h-[500px] flex items-center justify-center">
 
             {/* Controls */}
+            {/* Controls */}
             <button
                 onClick={handlePrev}
-                className="absolute left-4 md:left-10 z-50 p-4 rounded-full bg-black/20 border border-white/10 text-white/50 hover:text-white hover:bg-white/10 backdrop-blur-md transition-all hover:scale-110 active:scale-95"
+                className="absolute z-50 p-4 rounded-full bg-black/20 border border-white/10 text-white/50 hover:text-white hover:bg-white/10 backdrop-blur-md transition-all hover:scale-110 active:scale-95 max-md:bottom-0 max-md:left-12 max-md:top-auto md:top-1/2 md:-translate-y-1/2 md:left-10"
             >
                 <ChevronLeft size={32} />
             </button>
 
             <button
                 onClick={handleNext}
-                className="absolute right-4 md:right-10 z-50 p-4 rounded-full bg-black/20 border border-white/10 text-white/50 hover:text-white hover:bg-white/10 backdrop-blur-md transition-all hover:scale-110 active:scale-95"
+                className="absolute z-50 p-4 rounded-full bg-black/20 border border-white/10 text-white/50 hover:text-white hover:bg-white/10 backdrop-blur-md transition-all hover:scale-110 active:scale-95 max-md:bottom-0 max-md:right-12 max-md:top-auto md:top-1/2 md:-translate-y-1/2 md:right-10"
             >
                 <ChevronRight size={32} />
             </button>

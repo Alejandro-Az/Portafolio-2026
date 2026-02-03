@@ -55,10 +55,18 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.18 }}
           className="mt-8 flex flex-wrap items-center gap-3"
         >
-          <Button className="rounded-2xl">Ver proyectos</Button>
-          <Button variant="outline" className="rounded-2xl">
-            Descargar CV
-          </Button>
+          <a
+            href="https://pabloalejandroazuara.infinityfreeapp.com/mis-proyectos-2/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="rounded-2xl">Ver proyectos</Button>
+          </a>
+          <a href="/cv.pdf" download="CV_Pablo_Alejandro_Robles.pdf">
+            <Button variant="outline" className="rounded-2xl">
+              Descargar CV
+            </Button>
+          </a>
         </motion.div>
       </div>
     </section>
