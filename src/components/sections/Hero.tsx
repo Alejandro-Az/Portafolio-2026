@@ -6,9 +6,9 @@ export function Hero() {
   const reduce = useReducedMotion()
 
   return (
-    <section className="relative isolate overflow-hidden">
+    <section id="top" className="relative isolate overflow-hidden">
       {/* Fondo animado (paths) */}
-      <HeroPathBackground loop={false} />
+      <HeroPathBackground />
 
       {/* blobs encima del fondo */}
       <div className="pointer-events-none absolute inset-0 z-10 opacity-70">
@@ -24,7 +24,7 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="text-sm tracking-wider text-muted-foreground"
         >
-          Full Stack Developer · React · Laravel · Git · Github · Slack · JIRA
+          Full Stack Developer · Laravel + React · APIs REST · MySQL · TypeScript
         </motion.p>
 
         <motion.h1
@@ -33,11 +33,11 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.05 }}
           className="mt-4 text-balance text-4xl font-semibold leading-tight md:text-6xl"
         >
-          Construyo productos web{" "}
+          Construyo aplicaciones y webs{" "}
           <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text text-transparent">
-            rápidos, seguros
+            escalables, seguras
           </span>{" "}
-          y con UI premium.
+          y bien estructuradas.
         </motion.h1>
 
         <motion.p
@@ -46,8 +46,7 @@ export function Hero() {
           transition={{ duration: 0.55, delay: 0.12 }}
           className="mt-5 max-w-2xl text-pretty text-base text-muted-foreground md:text-lg"
         >
-          Soy un desarrollador full stack pro: diseño interfaces limpias, implemento APIs robustas,
-          y despliego con buenas prácticas para que tu producto escale sin drama.
+          Diseño interfaces limpias, desarrollo sitios seguros y despliego con buenas prácticas. Dejo tu producto listo para crecer a lo grande: performance, mantenibilidad y calidad desde el día 1.
         </motion.p>
 
         <motion.div
