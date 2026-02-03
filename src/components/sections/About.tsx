@@ -18,14 +18,14 @@ import { ConstellationBackground } from "@/components/background/constellation-b
 import {
   SiReact, SiLaravel, SiMysql, SiDocker, SiStripe,
   SiOpenai, SiPhp, SiJsonwebtokens, SiTypescript,
-  SiSwagger, SiGithub, SiGitlab, SiTailwindcss, SiVite
+  SiSwagger, SiGithub, SiGitlab, SiTailwindcss, SiVite, SiGit
 } from "react-icons/si"
 
 // --- DATOS DEL STACK (Tu Arsenal) ---
 const stackKeys = [
   "React", "Vite", "Tailwind", "Laravel", "MySQL",
   "TypeScript", "JWT", "Swagger", "OpenAI",
-  "PHPUnit", "GitHub", "CI/CD"
+  "PHPUnit", "GitHub", "Git", "CI/CD"
 ]
 
 // Map data tags to icons
@@ -44,6 +44,7 @@ const iconMap: Record<string, React.ElementType> = {
   "PHPUnit": SiPhp, // Fallback to PHP icon or similar
   "GitHub": SiGithub,
   "GitLab": SiGitlab,
+  "Git": SiGit,
   "BBVA": Briefcase, // Fallback icon
   "CI/CD": Rocket, // Fallback icon
 }
@@ -63,6 +64,7 @@ const colorMap: Record<string, string> = {
   "PHPUnit": "#3C8CB5", // PHP color
   "GitHub": "#ffffff",
   "GitLab": "#FC6D26",
+  "Git": "#F05032",
   "BBVA": "#004481",
   "CI/CD": "#10B981",
 }
