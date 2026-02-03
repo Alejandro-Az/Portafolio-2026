@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# 🚀 Portafolio Profesional 2026 - Alejandro Robles
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Banner](./public/og-image.jpg)
 
-Currently, two official plugins are available:
+> **Ingeniero en Sistemas Computacionales & Full Stack Developer (Laravel + React)**
+>
+> Un portafolio moderno, performante y escalable diseñado para demostrar habilidades técnicas avanzadas y sensibilidad estética.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Características Principales
 
-## React Compiler
+Este proyecto no es solo una "hoja de vida", es una demostración de ingeniería de software frontend:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **⚡ Performance First:** Optimizado con **Lazy Loading**, **Code Splitting** y arquitectura SPA para cargar al instante, incluso en móviles (Puntuación optimizada).
+*   **🎨 UI/UX Premium:** Diseño **Glassmorphism**, efectos de neón dinámicos y animaciones fluidas con **Framer Motion**.
+*   **🌌 Fondo Interactivo:** Implementación matemática de un fondo de constelaciones usando **HTML5 Canvas** y física básica, 100% responsivo (ResizeObserver).
+*   **📱 Diseño Responsivo:** Adaptabilidad total "Mobile-First" con **Tailwind CSS**.
+*   **🔒 Seguridad:** Configuración robusta con `.htaccess` (HSTS, Anti-Clickjacking, CSP) y sanitización de enlaces (`noopener noreferrer`).
+*   **🔍 SEO Friendly:** Metadatos optimizados, soporte Open Graph (Facebook/WhatsApp/Linkedin) y Twitter Cards.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+El proyecto está construido sobre un stack moderno y tipado:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Categoría | Tecnologías |
+| :--- | :--- |
+| **Core** | ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=flat&logo=vite&logoColor=FFD62E) |
+| **Estilos** | ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white) ![Shadcn/UI](https://img.shields.io/badge/shadcn%2Fui-000000?style=flat&logo=shadcnui&logoColor=white) |
+| **Animación** | ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat&logo=framer&logoColor=white) |
+| **Análisis** | ![Google Analytics](https://img.shields.io/badge/Google_Analytics-E37400?style=flat&logo=google-analytics&logoColor=white) |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Instalación y Uso
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Si deseas clonar y correr este proyecto localmente:
+
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone https://github.com/Alejandro-Az/Portafolio-2026.git
+    cd Portafolio-2026
+    ```
+
+2.  **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
+
+3.  **Iniciar servidor de desarrollo:**
+    ```bash
+    npm run dev
+    ```
+    Visita `http://localhost:5173` en tu navegador.
+
+## 📦 Build para Producción
+
+Para generar los archivos estáticos optimizados para despliegue (Hostinger, Vercel, Netlify):
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Esto generará una carpeta `dist/` con:
+*   Minificación de JS/CSS.
+*   Separación de Chunks (Code Splitting).
+*   Configuración de `.htaccess` y assets estáticos.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📄 Estructura del Proyecto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── components/
+│   ├── background/   # Lógica de Canvas (Constelaciones, Hexágonos)
+│   ├── layout/       # Header, Footer, Wrappers
+│   ├── sections/     # Hero, About, Skills, Projects, Contact
+│   └── ui/           # Componentes base (Botones, Cards, Inputs)
+├── data/             # Datos estáticos (Proyectos, Experiencia)
+├── main.tsx          # Punto de entrada
+└── App.tsx           # Router y Lazy Loading
+```
+
+## 📬 Contacto
+
+¿Te interesa colaborar? ¡Hablemos!
+
+*   **LinkedIn:** [Pablo Alejandro Robles Azuara](https://www.linkedin.com/in/pablo-azuara-53b295163/)
+*   **GitHub:** [Alejandro-Az](https://github.com/Alejandro-Az)
+*   **Email:** pabloazuara800@gmail.com
+
+---
+© 2026 Alejandro Robles. Hecho con ❤️ y mucho código.
