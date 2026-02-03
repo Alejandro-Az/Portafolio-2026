@@ -44,7 +44,7 @@ export default function App() {
                 <a
                   href="https://github.com/Alejandro-Az"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors"
                 >
                   GitHub
@@ -53,7 +53,7 @@ export default function App() {
                 <a
                   href="https://www.linkedin.com/in/pablo-azuara-53b295163/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="hover:text-foreground transition-colors"
                 >
                   LinkedIn

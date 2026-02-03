@@ -7,3 +7,23 @@
   RewriteCond %{REQUEST_FILENAME} !-l
   RewriteRule . /index.html [L]
 </IfModule>
+
+<IfModule mod_headers.c>
+  # Prevent Clickjacking
+  Header set X-Frame-Options "SAMEORIGIN"
+  
+  # Prevent MIME Sniffing
+  Header set X-Content-Type-Options "nosniff"
+  
+  # XSS Protection (for legacy browsers)
+  Header set X-XSS-Protection "1; mode=block"
+  
+  # Referrer Policy
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Strict Transport Security (HSTS) - Uncomment if you have HTTPS fully working
+  # Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  
+  # Permissions Policy (Optional - restricts features)
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
