@@ -16,13 +16,24 @@ export function ConstellationBackground() {
         let stars: Star[] = []
 
         // Configuración
-        const starCount = 85 // Más estrellas
-        const connectionDistance = 180 // Más alcance de conexión
-        const mouseDistance = 250 // Más alcance del mouse
+        // Ajuste responsive: Menos estrellas en móvil para evitar saturación
+        const isMobile = window.innerWidth < 768
+        const starCount = isMobile ? 35 : 85
+        const connectionDistance = isMobile ? 120 : 180
+        const mouseDistance = 250
 
+        // --- RESIZE LOGIC CON OBSERVER (Fix "aplastamiento") ---
+        // Usamos ResizeObserver para que el canvas siempre tenga el tamaño REAL del contenedor
+        // y no se estire con CSS.
         const resize = () => {
-            canvas.width = window.innerWidth
-            canvas.height = window.innerHeight
+            const parent = canvas.parentElement
+            if (parent) {
+                const { width, height } = parent.getBoundingClientRect()
+                // Multiplicamos por pixelRatio para nitidez, si fuera necesario, 
+                // pero mantenerlo 1:1 simplifica cálculos de mouse.
+                canvas.width = width
+                canvas.height = height
+            }
         }
 
         class Star {
@@ -34,8 +45,9 @@ export function ConstellationBackground() {
             color: string
 
             constructor() {
-                this.x = Math.random() * canvas!.width
-                this.y = Math.random() * canvas!.height
+                // Posición inicial aleatoria dentro de las dimensiones actuales
+                this.x = Math.random() * (canvas?.width || window.innerWidth)
+                this.y = Math.random() * (canvas?.height || window.innerHeight)
                 this.vx = (Math.random() - 0.5) * 0.3 // Velocidad relajada
                 this.vy = (Math.random() - 0.5) * 0.3
                 this.size = Math.random() * 2 + 1.5 // Estrellas un poco más grandes
@@ -44,12 +56,13 @@ export function ConstellationBackground() {
             }
 
             update() {
+                if (!canvas) return
                 this.x += this.vx
                 this.y += this.vy
 
-                // Rebotar en bordes
-                if (this.x < 0 || this.x > canvas!.width) this.vx *= -1
-                if (this.y < 0 || this.y > canvas!.height) this.vy *= -1
+                // Rebotar en bordes (usando dimensiones dinámicas)
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1
             }
 
             draw() {
@@ -76,6 +89,7 @@ export function ConstellationBackground() {
         let mouseY = -1000
 
         const handleMouseMove = (e: MouseEvent) => {
+            // Coordenadas relativas al canvas (importante si el canvas no empieza en 0,0)
             const rect = canvas.getBoundingClientRect()
             mouseX = e.clientX - rect.left
             mouseY = e.clientY - rect.top
@@ -129,15 +143,31 @@ export function ConstellationBackground() {
             animationFrameId = requestAnimationFrame(animate)
         }
 
+        // Inicialización
         init()
         animate()
 
-        window.addEventListener("resize", init)
+        // Observer para cambios de tamaño verdaderos
+        const resizeObserver = new ResizeObserver(() => {
+            resize()
+            // Opcional: reiniciar estrellas si cambia mucho el tamaño
+            // init() 
+        })
+
+        if (canvas.parentElement) {
+            resizeObserver.observe(canvas.parentElement)
+        }
+
+        // Mouse listeners globales al window para mejor tracking, 
+        // o al canvas si solo queremos efecto hover local.
+        // Aquí usamos window para garantizar flujos suaves.
+        // PERO para coordenadas correctas relativas, mejor usar listener en el canvas 
+        // o transformar e.client con getBoundingClientRect (como hacemos en handleMouseMove).
         window.addEventListener("mousemove", handleMouseMove)
 
         return () => {
             cancelAnimationFrame(animationFrameId)
-            window.removeEventListener("resize", init)
+            resizeObserver.disconnect()
             window.removeEventListener("mousemove", handleMouseMove)
         }
     }, [])

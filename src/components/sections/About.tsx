@@ -201,12 +201,12 @@ export function About() {
                   const color = colorMap[key] || "#ffffff"
                   return (
                     <div key={key} className="group/icon relative flex flex-col items-center justify-center p-2">
-                      {/* Glow Reflection on Hover */}
-                      <div className="absolute inset-0 bg-[var(--icon-color)] blur-xl opacity-0 group-hover/icon:opacity-20 transition-opacity duration-300 rounded-full" style={{ '--icon-color': color } as React.CSSProperties} />
+                      {/* Glow Reflection on Hover - Trigger on CARD hover (group-hover) and Mobile (max-md) */}
+                      <div className="absolute inset-0 bg-[var(--icon-color)] blur-xl opacity-0 group-hover:opacity-20 max-md:opacity-20 transition-opacity duration-300 rounded-full" style={{ '--icon-color': color } as React.CSSProperties} />
 
                       <Icon
                         size={32}
-                        className="relative z-10 text-zinc-500 transition-all duration-300 group-hover/icon:text-white group-hover/icon:scale-110 group-hover/icon:drop-shadow-[0_0_10px_var(--icon-color)]"
+                        className="relative z-10 text-zinc-500 transition-all duration-300 group-hover:text-white max-md:text-white group-hover/icon:scale-110 group-hover:drop-shadow-[0_0_10px_var(--icon-color)] max-md:drop-shadow-[0_0_10px_var(--icon-color)]"
                         style={{ '--icon-color': color } as React.CSSProperties}
                       />
 
@@ -273,10 +273,10 @@ function GradientCard({ children, className, theme = "cyan" }: GradientCardProps
 
   // Mapeo de estilos según el tema
   const themeStyles = {
-    cyan: "hover:border-cyan-500/50 hover:bg-cyan-500/10 hover:shadow-cyan-500/20",
-    purple: "hover:border-purple-500/50 hover:bg-purple-500/10 hover:shadow-purple-500/20",
-    yellow: "hover:border-yellow-500/50 hover:bg-yellow-500/10 hover:shadow-yellow-500/20",
-    gold: "hover:border-[#C5A059]/50 hover:bg-[#C5A059]/10 hover:shadow-[#C5A059]/20"
+    cyan: "hover:border-cyan-500/50 hover:bg-cyan-500/10 hover:shadow-cyan-500/20 max-md:border-cyan-500/50 max-md:bg-cyan-500/10 max-md:shadow-cyan-500/20",
+    purple: "hover:border-purple-500/50 hover:bg-purple-500/10 hover:shadow-purple-500/20 max-md:border-purple-500/50 max-md:bg-purple-500/10 max-md:shadow-purple-500/20",
+    yellow: "hover:border-yellow-500/50 hover:bg-yellow-500/10 hover:shadow-yellow-500/20 max-md:border-yellow-500/50 max-md:bg-yellow-500/10 max-md:shadow-yellow-500/20",
+    gold: "hover:border-[#C5A059]/50 hover:bg-[#C5A059]/10 hover:shadow-[#C5A059]/20 max-md:border-[#C5A059]/50 max-md:bg-[#C5A059]/10 max-md:shadow-[#C5A059]/20"
   }
 
   return (

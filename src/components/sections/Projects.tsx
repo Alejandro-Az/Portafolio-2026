@@ -152,13 +152,13 @@ export function Projects() {
                         const color = colorMap[tag] || "#ffffff"
                         return (
                           <div key={tag} className="group/icon relative flex items-center justify-center">
-                            {/* Glow Reflection - Lights up on CARD hover */}
-                            <div className="absolute inset-0 bg-[var(--icon-color)] blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-300" style={{ '--icon-color': color } as React.CSSProperties} />
+                            {/* Glow Reflection - Lights up on CARD hover AND always on Mobile */}
+                            <div className="absolute inset-0 bg-[var(--icon-color)] blur-md opacity-0 md:group-hover:opacity-40 max-md:opacity-40 transition-opacity duration-300" style={{ '--icon-color': color } as React.CSSProperties} />
 
-                            {/* Icon - Lights up on CARD hover */}
+                            {/* Icon - Lights up on CARD hover AND always on Mobile */}
                             <Icon
                               size={22}
-                              className="relative z-10 text-zinc-600 transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_8px_var(--icon-color)]"
+                              className="relative z-10 text-zinc-600 transition-all duration-300 md:group-hover:text-white md:group-hover:drop-shadow-[0_0_8px_var(--icon-color)] max-md:text-white max-md:drop-shadow-[0_0_5px_var(--icon-color)]"
                               style={{ '--icon-color': color } as React.CSSProperties}
                             />
 
@@ -175,7 +175,7 @@ export function Projects() {
 
                 {/* --- HOVER REVEAL BUTTON --- */}
                 {!p.confidential && (
-                  <div className="absolute bottom-6 right-6 translate-x-10 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                  <div className="absolute bottom-6 right-6 transition-all duration-500 delay-100 opacity-100 translate-x-0 md:translate-x-10 md:opacity-0 md:group-hover:translate-x-0 md:group-hover:opacity-100">
                     <a
                       href={p.demoUrl || "#"}
                       target="_blank"

@@ -26,14 +26,14 @@ export function Timeline({ items }: TimelineProps) {
 
             {/* --- AREA SUPERIOR: TARJETA ACTIVA --- */}
             <div className="min-h-[350px] flex items-center justify-center mb-12">
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="popLayout">
                     <motion.div
                         key={activeIndex}
                         initial={{ opacity: 0, y: 10, scale: 0.98 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.98 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="w-full max-w-2xl"
+                        className="w-full max-w-2xl min-h-[420px]"
                     >
                         {/* Glassmorphism Card: Ultra transparente (bg-zinc-900/5) */}
                         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/5 backdrop-blur-xl p-8 shadow-2xl shadow-purple-500/5">
