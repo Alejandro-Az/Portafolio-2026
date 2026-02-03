@@ -146,7 +146,7 @@ export function Projects() {
 
                   {/* --- NEON ICONS ROW --- */}
                   <div className="mt-auto pt-6 border-t border-white/5">
-                    <div className="flex flex-wrap gap-4 items-center">
+                    <div className="flex flex-wrap gap-4 items-center pr-16">
                       {p.tags.map(tag => {
                         const Icon = iconMap[tag] || Terminal
                         const color = colorMap[tag] || "#ffffff"
